@@ -8,4 +8,19 @@ FROM healthcare_dataset;
 SELECT `Medical Condition`,
        ROUND(SUM(`Billing Amount`),2) AS revenue
 FROM healthcare_dataset
-GROUP BY `Medical Condition`; 
+GROUP BY `Medical Condition`
+ORDER BY revenue DESC;
+
+-- Revenue Contribution %
+
+SELECT
+    `Medical Condition`,
+    ROUND(SUM(`Billing Amount`),2) AS revenue,
+    ROUND(
+        SUM(`Billing Amount`) * 100 /
+        SUM(SUM(`Billing Amount`)) OVER(),
+        2
+    ) AS revenue_pct
+FROM healthcare_dataset
+GROUP BY `Medical Condition`
+ORDER BY revenue DESC; 
