@@ -1,0 +1,11 @@
+-- Total Revenue
+
+SELECT ROUND(SUM(`Billing Amount`),2) AS total_revenue
+FROM healthcare_dataset;
+
+-- Revenue by Medical Condition
+
+SELECT `Medical Condition`,
+       ROUND(SUM(`Billing Amount`),2) AS revenue
+FROM healthcare_dataset
+GROUP BY `Medical Condition`; 
