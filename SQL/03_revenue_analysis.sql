@@ -24,3 +24,10 @@ SELECT
 FROM healthcare_dataset
 GROUP BY `Medical Condition`
 ORDER BY revenue DESC; 
+-- Ranking Condition by Revenue, 
+SELECT
+    YEAR(`Date of Admission`) AS admission_year,
+    COUNT(*) AS patients
+FROM healthcare_dataset
+GROUP BY YEAR(`Date of Admission`)
+ORDER BY admission_year; 

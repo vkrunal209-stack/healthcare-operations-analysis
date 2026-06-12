@@ -18,4 +18,4 @@ FROM healthcare_dataset;
 -- Distinct Doctors
 
 SELECT COUNT(DISTINCT Doctor) AS doctors_count
-FROM healthcare_dataset; 
+FROM healthcare_dataset;  
